@@ -234,17 +234,26 @@ namespace Ryujinx.Graphics.Gpu.Memory
         /// </summary>
         /// <param name="address">The start address of the modified region</param>
         /// <param name="size">The size of the modified region</param>
-        public void SignalModified(ulong address, ulong size)
+       public void SignalModified(ulong address, ulong size)
+
         {
-            EnsureRangeList();
 
-            _modifiedRanges.SignalModified(address, size);
+        return ;
 
-            if (!_syncActionRegistered)
-            {
-                _context.RegisterSyncAction(SyncAction);
-                _syncActionRegistered = true;
-            }
+        EnsureRangeList();
+
+        _modifiedRanges.SignalModified(address, size);
+
+        if (!_syncActionRegistered)
+
+        {
+
+        _context.RegisterSyncAction(SyncAction);
+
+        _syncActionRegistered = true;
+
+        }
+
         }
 
         /// <summary>
